@@ -15,11 +15,11 @@ module.exports = {
     knex: {
         client: 'mysql',
         connection: {
-            host: 'sql452.main-hosting.eu',
-            port: 3306,
-            user: 'u887929325_admin',
-            password: 'RerUC4GUGNIIJoemYod1',
-            database: 'u887929325_test_lab',
+            host: '',
+            port: ,
+            user: '',
+            password: '',
+            database: '',
             timezone: "+03:00"
         },
         pool: {
