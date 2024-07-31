@@ -1,0 +1,9 @@
+{
+    "$defaultResponseCodes": true,
+    "bad_request": 400,
+    "invalid_username": 409,
+    "invalid_password": 409,
+    "unauthorized": 401,
+    "not_found": 404,
+    "ER_DUP_ENTRY": 409
+}

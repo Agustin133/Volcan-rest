@@ -1,0 +1,6 @@
+{
+    "ER_DUP_ENTRY": {
+        "message": "Duplicated entry for a unique key",
+        "severity": "HIGH"
+    }
+}

@@ -1,0 +1,285 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Tromen Api",
+        "description": "Estos son los contratos de los endpoints del Tromen",
+        "contact": {
+            "email": "admin@relay-group.com"
+        },
+        "license": {
+            "name": "RELAY GROUP 1.0",
+            "url": "https://realy-group.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [{
+            "url": "https://virtserver.swaggerhub.com/Relay-Group/RAE/1.0.0",
+            "description": "SwaggerHub API Auto Mocking"
+        },
+        {
+            "url": "relay-group.com",
+            "description": "RELAY GROUP"
+        }
+    ],
+    "tags": [{
+        "name": "Security",
+        "description": "Servicios que pertenecen al la seguridad y autenticacion del usuario"
+    }],
+    "paths": {
+        "/api/tromen/user/login": {
+            "post": {
+                "tags": [
+                    "Security"
+                ],
+                "summary": "Permite al usuario loguearse en el sistema",
+                "description": "Enviando el id de usuario y la contraseña, se puede validar el mismo y retornar un token de usuario\n",
+                "operationId": "loginUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/loginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorna un token de usuario",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/tokenResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "El request es erroneo",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/bad_request"
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "La contraseÃ±a o el usuario es invalido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/invalidUsernameOrPassword"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tromen/user/register": {
+            "post": {
+                "tags": [
+                    "Security"
+                ],
+                "summary": "Permite al usuario registrarse en el sistema",
+                "description": "Enviando los datos del usuario con su contraseÃ±a, le permitira registrarse en el sistema\n",
+                "operationId": "registerUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/registerRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorna un token de usuario",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/registerResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "El request es erroneo",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/bad_request"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "El token es invalido",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/unauthorized"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "loginRequest": {
+                "type": "object",
+                "properties": {
+                    "user_name": {
+                        "type": "string",
+                        "example": "nahuel25"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password"
+                    }
+                }
+            },
+            "registerRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Nahuel"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "example": "Yori"
+                    },
+                    "role": {
+                        "type": "integer",
+                        "example": 99
+                    },
+                    "user_name": {
+                        "type": "string",
+                        "example": "nahuel25"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password"
+                    }
+                }
+            },
+            "registerResponse": {
+                "type": "object",
+                "properties": {
+                    "operation_status": {
+                        "type": "string",
+                        "example": "OK"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Registered user successfully"
+                    },
+                    "content": {
+                        "$ref": "#/components/schemas/registerResponse_content"
+                    }
+                }
+            },
+            "tokenResponse": {
+                "type": "object",
+                "properties": {
+                    "token_id": {
+                        "type": "string",
+                        "example": "jHYT0145FERD56978XSDFCfdsasd12533QWNFRB.KJNS36577881"
+                    },
+                    "permissions": {
+                        "$ref": "#/components/schemas/tokenResponse_permissions"
+                    }
+                }
+            },
+            "bad_request": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "example": "bad_request"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "The request is wrong"
+                    },
+                    "severity": {
+                        "type": "string",
+                        "example": "LOW"
+                    }
+                }
+            },
+            "unauthorized": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "example": "unauthorized"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "You do not have permission to do this"
+                    },
+                    "severity": {
+                        "type": "string",
+                        "example": "HIGH"
+                    }
+                }
+            },
+            "invalidUsernameOrPassword": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "example": "invalid_login"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Your username or password was invalid"
+                    },
+                    "severity": {
+                        "type": "string",
+                        "example": "HIGH"
+                    }
+                }
+            },
+            "registerResponse_content": {
+                "type": "object",
+                "properties": {
+                    "user_name": {
+                        "type": "string",
+                        "example": "nahuel25"
+                    },
+                    "role_name": {
+                        "type": "string",
+                        "example": "Operator"
+                    }
+                }
+            },
+            "tokenResponse_permissions": {
+                "type": "object",
+                "properties": {
+                    "canEditUser": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "canCreateEmergency": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "canCreateSimulacrum": {
+                        "type": "boolean",
+                        "example": true
+                    }
+                }
+            }
+        }
+    }
+}

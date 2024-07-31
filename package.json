@@ -1,0 +1,62 @@
+{
+    "name": "tromen",
+    "version": "1.0.0",
+    "description": "This is de Backend of Tromen",
+    "main": "index.js",
+    "engines": {
+        "node": "11.10.0",
+        "npm": "6.7.0"
+    },
+    "scripts": {
+        "start": "nodemon src/index.js",
+        "linter": "eslint --fix src/"
+    },
+    "author": "Master Develop",
+    "license": "ISC",
+    "dependencies": {
+        "aws-sdk": "^2.935.0",
+        "bcrypt": "^5.0.0",
+        "body-parser": "^1.19.0",
+        "cli-color": "^2.0.0",
+        "compose-middleware": "^5.0.1",
+        "config": "^3.3.2",
+        "cors": "^2.8.5",
+        "eslint": "^5.16.0",
+        "eslint-config-google": "^0.14.0",
+        "eslint-config-prettier": "^6.5.0",
+        "eslint-plugin-prettier": "^3.1.1",
+        "express": "^4.17.1",
+        "express-http-context": "^1.2.4",
+        "express-winston": "^4.0.5",
+        "helmet": "^4.4.1",
+        "joi": "^14.3.1",
+        "jsonwebtoken": "^8.5.1",
+        "knex": "^0.95.4",
+        "lodash.clonedeep": "^4.5.0",
+        "lodash.snakecase": "^4.1.1",
+        "mask-json": "^1.0.3",
+        "method-override": "^3.0.0",
+        "moment": "^2.29.1",
+        "mysql": "^2.18.1",
+        "mysql2": "^2.2.5",
+        "node-cache": "^5.1.2",
+        "nodemon": "^2.0.4",
+        "oracledb": "^5.2.0",
+        "pg-query-stream": "^4.1.0",
+        "ping": "^0.3.0",
+        "prettier": "^1.19.1",
+        "recursive-json-key-transform": "^0.2.0",
+        "response-time": "^2.3.2",
+        "serialize-error": "^4.1.0",
+        "socket.io": "^4.1.2",
+        "sqlite3": "^5.0.2",
+        "swagger-stats": "^0.95.18",
+        "tedious": "^11.0.9",
+        "winston": "^2.4.4",
+        "winston-console-formatter": "^1.0.0-beta.3",
+        "winston-error": "^1.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^14.14.33"
+    }
+}

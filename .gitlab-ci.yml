@@ -1,0 +1,19 @@
+
+image: node:latest
+
+before_script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+
+stages:
+    - master
+    - production
+
+master:
+    stage: master
+    image: ruby:latest
+    script:
+        - dpl --provider=heroku --app=api-tromen --api-key=bbf24471-4e3e-47a4-bd1b-7fbdf8bfed24
+    only:
+        - master

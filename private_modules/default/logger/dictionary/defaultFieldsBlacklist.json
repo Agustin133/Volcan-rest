@@ -1,0 +1,7 @@
+{
+    "fields": [
+        "authorization",
+        "password",
+        "new_password"
+    ]
+}

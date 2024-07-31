@@ -1,0 +1,22 @@
+{
+    "invalid_password": {
+        "message": "Your password is invalid",
+        "severity": "HIGH"
+    },
+    "unauthorized": {
+        "message": "Your credentials are invalid",
+        "severity": "HIGH"
+    },
+    "invalid_username": {
+        "message": "Your username is invalid",
+        "severity": "HIGH"
+    },
+    "username_already_exist": {
+        "message": "The username already exist",
+        "severity": "HIGH"
+    },
+    "bad_request": {
+        "message": "Bad Request",
+        "severity": "LOW"
+    }
+}
